@@ -1,0 +1,20 @@
+steps:
+
+- id: 'tf init'
+  name: 'hashicorp/terraform:1.0.0'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - | 
+    cd gcloud-build-terraform-deploy
+    terraform init
+
+
+- id: 'tf apply'
+  name: 'hashicorp/terraform:1.0.0'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - | 
+    cd gcloud-build-terraform-deploy
+    terraform apply -auto-approve
